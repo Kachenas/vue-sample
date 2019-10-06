@@ -9,20 +9,28 @@
         xs12
         mb-5
       >
- 
 
         <v-layout justify-center>
-            <h1>{{ msg }}</h1>
+            <h1>{{ statusMessage }}</h1>
+            <br>
         </v-layout>
+        <h3>There are {{ countLinks }} sites listed</h3>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
+  name: 'Stats',
   data: () => ({
-    msg: 'This is my message to VUE'
+    statusMessage: 'This is a separator for Status Count'
   }),
+  computed: {
+    ...mapGetters([
+      'countLinks'
+    ])
+  }
 };
 </script>
